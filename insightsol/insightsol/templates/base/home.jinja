@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/png" href="https://www.ignitesol.com/wp-content/uploads/2017/08/cropped-Graphic-32x32.png"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>InsightSol TECH</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="jumbotron" style="width:100%; text-align:center; background-color:#19a8a4; position:absolute;top:10px;width:100%;height:50%;margin:0px;padding-top:50px;">
+    		<div class="container">
+    			<h1><strong>Welcome to InsightSol project</strong></h1>
+                {% if request.user.is_authenticated %}
+                    Hello {{ request.user.name }}
+                {% endif %}
+    		</div>
+    	</div>
+        
+        <script src="" async defer></script>
+    </body>
+</html>

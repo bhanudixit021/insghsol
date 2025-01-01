@@ -1,0 +1,63 @@
+{
+    "family": "bhanu-insight-task-def",
+    "taskRoleArn": "arn:aws:iam::139868136390:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::139868136390:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "containerDefinitions": [
+        {
+            "name": "django-ecr",
+            "image": "139868136390.dkr.ecr.ap-south-1.amazonaws.com/bhanu-insights:v0.0.03",
+            "cpu": 0,
+            "memoryReservation": 512,
+            "portMappings": [
+                {
+                    "name": "django-ecr-80-tcp",
+                    "containerPort": 8000,
+                    "hostPort": 8000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "MASTER_DB_USER",
+                    "value": "root"
+                },
+                {
+                    "name": "MASTER_DB_HOST",
+                    "value": "test-db.cnaoy1kocghu.ap-south-1.rds.amazonaws.com"
+                },
+                {
+                    "name": "MASTER_DB_NAME",
+                    "value": "books"
+                },
+                {
+                    "name": "MASTER_DB_PASSWORD",
+                    "value": "rW_2NZd[[8hlxYn)oXWswne~:2To"
+                },
+                {
+                    "name": "DEBUG",
+                    "value": "True"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/bhanu-insight-task-def",
+                    "awslogs-region": "ap-south-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    }
+}
