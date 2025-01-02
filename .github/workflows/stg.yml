@@ -3,7 +3,7 @@ name: CI/CD for Django App on AWS
 on:
   push:
     branches:
-      - master
+      - master0
 
 jobs:
   build:
